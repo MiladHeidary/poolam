@@ -3,7 +3,6 @@
 -- luarocks install lua-requests
 
 local requests = require 'requests'
-local serpent = require 'serpent'
 local socket = require 'socket'
 local json = require 'cjson'
 local erorr_table = {
@@ -51,7 +50,7 @@ local function CheckPayment(api_key, invoice_key)
     return {ok = false , text = erorr_table[output.errorCode]}
   end
   if not output.bank_code then
-    return {ok = false , text = 'خطا در اتصال به درگاه پرداخت'}
+    return {ok = false, text = 'خطای غیر منتظره از سمت درگاه'}
   end
   return {ok = treu, amount = output.amount, bank_code = output.bank_code}
 end
