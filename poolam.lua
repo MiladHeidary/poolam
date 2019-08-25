@@ -52,5 +52,5 @@ local function CheckPayment(api_key, invoice_key)
   if not output.bank_code then
     return {ok = false, text = 'خطای غیر منتظره از سمت درگاه'}
   end
-  return {ok = treu, amount = output.amount, bank_code = output.bank_code}
+  return {ok = true, amount = output.amount, bank_code = output.bank_code}
 end
